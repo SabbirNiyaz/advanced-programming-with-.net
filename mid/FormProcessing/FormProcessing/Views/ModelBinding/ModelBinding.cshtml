@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "ModelBinding"; // Show error message
+}
+<div class="text-danger">
+    @Html.ValidationSummary()
+</div>
+<br />
+<h2 class="text-bg-success p-2">4. ModelBinding</h2>
+<br />
+<form action="" method="post">
+    Name: <input type="text" name="Name" value="@Model.Name" placeholder="Type your name" /><br />
+    <span class="text-danger">@Html.ValidationMessage("Name")</span>
+
+    Email: <input type="text" name="Email" value="@Model.Email" placeholder="Type your email" /><br />
+    <span class="text-danger">@Html.ValidationMessage("Email")</span>
+
+    <input type="submit" value="Submit" />
+</form>
+<br />
+<br />
+
+@if (ViewBag.Name != null)
+{
+    <div class="text-bg-primary p-2">
+        <h3>Show Name: @ViewBag.Name</h3>
+        <p>Show Email: @ViewBag.Email</p>
+    </div>
+}
+

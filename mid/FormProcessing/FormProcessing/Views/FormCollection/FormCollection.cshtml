@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "FormCollection";
+}
+
+<h2 class="text-bg-info p-2">2. FormCollection</h2>
+<br />
+<form action="" method="post">
+    Name: <input type="text" name="Name" placeholder="Type your name" /><br />
+    Email: <input type="text" name="Email" placeholder="Type your email" /><br />
+    <input type="submit" value="Submit" />
+</form>
+<br />
+<br />
+
+@if (ViewBag.Name != null)
+{
+    <div class="text-bg-primary p-2">
+        <h3>Show Name: @ViewBag.Name</h3>
+        <p>Show Email: @ViewBag.Email</p>
+    </div>
+}

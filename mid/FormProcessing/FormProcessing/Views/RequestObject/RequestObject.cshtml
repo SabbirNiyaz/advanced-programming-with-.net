@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "RequestObject";
+}
+
+<h2 class="text-bg-danger p-2">1. RequestObject & FormCollection</h2>
+<br />
+<form action="" method="post">
+    Name: <input type="text" name="Name" placeholder="Type your name" /><br />
+    Email: <input type="text" name="Email" placeholder="Type your email" /><br />
+    <input type="submit" value="Submit" />
+</form>
+<br />
+<br />
+
+@if (ViewBag.Name != null)
+{
+    <div class="text-bg-primary p-2">
+        <h3>Show Name: @ViewBag.name</h3>
+        <p>Show Email: @ViewBag.email</p>
+    </div>
+}
