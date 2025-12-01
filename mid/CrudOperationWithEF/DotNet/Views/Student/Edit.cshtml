@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+@{
+    bool CheckDept(int id)
+    {
+        if (Model.DepartmentID == id)
+        {
+            return true;
+        }
+        return false;
+    }
+}
+
+<h2>Edit</h2>
+
+<form method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    Student Name :
+    <input type="text" name="StudentName" value="@Model.StudentName" class="form-control" />
+    Department :
+    <select name="DepartmentID" class="form-control">
+        @foreach (var items in ViewBag.Depts)
+        {
+            <option selected="@CheckDept(items.DepartmentID)" value="@items.DepartmentID">@items.DepartmentName</option>
+        }
+    </select>
+
+    <input type="submit" value="Update" class="btn btn-primary" />
+</form>
+

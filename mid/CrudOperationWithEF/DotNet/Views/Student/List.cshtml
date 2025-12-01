@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+
+@{
+if (TempData["msg"]!= null)
+            {
+                <p class="alert alert-info">@TempData["msg"]</p>
+            }
+}
+<h2>List</h2>
+
+<table class="table table-bordered" >
+    <tr>
+        <th>ID</th>
+        <th>Student Name</th>
+        <th>Department</th>
+        <th></th>
+    </tr>
+
+    @foreach(var items in Model)
+            {
+                <tr>
+                    <td>@items.Id</td>
+                    <td>@items.StudentName</td>
+                    <td>@items.Department.DepartmentName</td>
+                    <td>
+                        <a href="/Student/Delete/@items.Id">Delete</a>
+                        <a href="/Student/Edit/@items.Id">Edit</a>
+                    </td>
+                </tr>
+            }
+
+</table>
+

@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+
+<form method="post">
+    Student Name :
+    <input type="text" name="StudentName" class="form-control" />
+    Department :
+    <select name="DepartmentID" class="form-control">
+        @foreach (var items in Model)
+            {
+            <option value="@items.DepartmentID">@items.DepartmentName</option>
+            }
+    </select>
+
+    <input type="submit" value="Register" class="btn btn-primary" />
+</form>
+
+
