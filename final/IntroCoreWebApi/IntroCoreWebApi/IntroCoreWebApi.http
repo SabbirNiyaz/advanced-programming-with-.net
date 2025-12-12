@@ -1,0 +1,6 @@
+@IntroCoreWebApi_HostAddress = http://localhost:5251
+
+GET {{IntroCoreWebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
