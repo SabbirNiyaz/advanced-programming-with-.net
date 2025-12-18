@@ -1,7 +1,6 @@
 git Bash:
 
-cd /c/Projects/ASP.NET
-
+cd s/Projects/advanced-programming-with-.net 
 git add .
 git commit -m "Your message"
 git push
