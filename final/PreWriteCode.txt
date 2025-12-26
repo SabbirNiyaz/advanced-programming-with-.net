@@ -1,0 +1,46 @@
+//-----------appsettings.json-----------//
+
+"ConnectionStrings": {
+    "DbConn": "Data Source=localhost; initial catalog=CRUD; TrustServerCertificate=True; Integrated Security=True;"}
+
+
+//-----------scaffold command for DB First--------------//
+
+dotnet tool install --global dotnet-ef --version 9.*
+dotnet ef dbcontext scaffold "Name=DbConn" --context-dir EF --output-dir EF/Tables Microsoft.EntityFrameworkCore.SqlServer
+
+
+
+//-----------program.cs--------------// DI
+builder.Services.AddDbContext<DbContext_Class_name>(opt => {
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConn"));
+});
+
+
+
+//-----------mapper--------------//
+
+Mapper GetMapper()
+{
+    var config = new MapperConfiguration(cfg => {
+        cfg.CreateMap<NewsDTO, News>().ReverseMap();
+    });
+    return new Mapper(config);
+}
+
+
+
+//-----------scaffold command for Code First--------------//
+
+dotnet ef migrations add CommitMessage
+dotnet ef database update
+
+
+
+//-----------DbContext Class--------------//
+
+ public UmSContext(DbContextOptions<UmSContext> options)
+        : base(options)
+
+
+
