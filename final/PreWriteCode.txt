@@ -16,6 +16,10 @@ builder.Services.AddDbContext<DbContext_Class_name>(opt => {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConn"));
 });
 
+//---------------3 Tire Arch--------------//
+
+builder.Services.AddScoped<Databae_Table_NameService>();
+builder.Services.AddScoped<Databae_Table_NameRepo>();
 
 
 //-----------mapper--------------//
@@ -39,8 +43,14 @@ dotnet ef database update
 
 //-----------DbContext Class--------------//
 
- public UmSContext(DbContextOptions<UmSContext> options)
-        : base(options)
+ public UmSContext(DbContextOptions<UmSContext> options): base(options){}
+
+
+//-----------scaffold command for Code First of 3 tire--------------//
+
+dotnet ef migrations add InitaialCommit --project DataAccessLayer --startup-project AppLayer
+dotnet ef database update --project DataAccessLayer --startup-project AppLayer
+
 
 
 
