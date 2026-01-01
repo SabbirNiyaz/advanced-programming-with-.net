@@ -34,7 +34,6 @@ namespace AppLayerData.Controllers
         //    var res = service.Update(c);
         //    return Ok(res);
         //}
-
         [HttpPut("update/{id}")]
         public IActionResult Update(int id, [FromBody] CourseDTO c)
         {
@@ -42,8 +41,6 @@ namespace AppLayerData.Controllers
             var res = service.Update(c);
             return Ok(res);
         }
-
-
         [HttpDelete("delete/{id}")]
         public IActionResult Delete(int id)
         {
