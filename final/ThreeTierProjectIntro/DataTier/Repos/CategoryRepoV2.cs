@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace DataTier.Repos
 {
-    // Each RepoClass handle only one Entity/Table
-    internal class CategoryRepo
+    internal class CategoryRepoV2 : IRepository<Category>
     {
         // Receive DbContext by use Constructor via Dependency Injection
         DatabaseRepresentContext db;
-        public CategoryRepo(DatabaseRepresentContext db)
+        public CategoryRepoV2(DatabaseRepresentContext db)
         {
             this.db = db;
         }
@@ -43,6 +42,10 @@ namespace DataTier.Repos
             var ex = GetById(id);
             db.Categories.Remove(ex);
             return db.SaveChanges() > 0;
+        }
+        public bool FindById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,3 +1,4 @@
+using DataTier;
 using DataTier.EF;
 using DataTier.Repos;
 using LogicTier.Services;
@@ -12,7 +13,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 // Own create services DI
-builder.Services.AddScoped<CategoryRepo>();
+//builder.Services.AddScoped<CategoryRepo>();
+builder.Services.AddScoped<DataAccessFactory>();
 //builder.Services.AddScoped<ProductRepo>();
 
 builder.Services.AddScoped(typeof(Repository<>)); // Generic Repo DI
