@@ -23,7 +23,7 @@ namespace PresentationTier.Controllers
             return Ok(data);
 
         }
-        // Get by ID
+        // Get by Id
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
