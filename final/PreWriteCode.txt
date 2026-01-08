@@ -18,8 +18,8 @@ builder.Services.AddDbContext<DbContext_Class_name>(opt => {
 
 //---------------3 Tire Arch--------------//
 
-builder.Services.AddScoped<Databae_Table_NameService>();
 builder.Services.AddScoped<Databae_Table_NameRepo>();
+builder.Services.AddScoped<Databae_Table_NameService>();
 
 
 //-----------mapper--------------//
@@ -31,6 +31,20 @@ Mapper GetMapper()
     });
     return new Mapper(config);
 }
+
+//-----------One Mapper Config------------//
+
+        static MapperConfiguration cfg  = new MapperConfiguration(cfg =>
+        {
+            // Define all mappings here
+            cfg.CreateMap<Category, CategoryDTO>().ReverseMap();
+            //cfg.CreateMap<Category, CategoryDTO>().ReverseMap();
+            //cfg.CreateMap<Category, CategoryDTO>().ReverseMap();
+        });
+        public static Mapper GetMapper()
+        {
+            return new Mapper(cfg);
+        }
 
 
 
@@ -49,8 +63,6 @@ dotnet ef database update
 //-----------scaffold command for Code First of 3 tire--------------//
 
 dotnet ef migrations add InitaialCommit --project DataAccessLayer --startup-project AppLayer
-dotnet ef database update --project DataAccessLayer --startup-project AppLayer
-
-
+dotnet ef database update --project DataTier --startup-project PresentationTier
 
 
