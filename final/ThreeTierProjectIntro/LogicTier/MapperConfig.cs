@@ -15,6 +15,7 @@ namespace LogicTier
         {
             // Define all mappings here
             cfg.CreateMap<Category, CategoryDTO>().ReverseMap();
+            cfg.CreateMap<Product, ProductDTO>().ReverseMap();
             //cfg.CreateMap<Category, CategoryDTO>().ReverseMap();
             //cfg.CreateMap<Category, CategoryDTO>().ReverseMap();
         });

@@ -13,7 +13,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 // Own create services DI
 builder.Services.AddScoped<CategoryRepo>();
+//builder.Services.AddScoped<ProductRepo>();
+
+builder.Services.AddScoped(typeof(Repository<>)); // Generic Repo DI
+
 builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<ProductService>();
 
 // DI
 builder.Services.AddDbContext<DatabaseRepresentContext>(opt => {
