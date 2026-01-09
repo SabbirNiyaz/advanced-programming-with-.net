@@ -1,3 +1,5 @@
+using BLL.Services;
+using DAL;
 using DAL.EF;
 using DAL.Repos;
 using Microsoft.EntityFrameworkCore;
@@ -12,9 +14,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // DI
-builder.Services.AddScoped<CategoryRepo>();
-builder.Services.AddScoped<ProductRepo>();
-//builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<DataAccessFactory>();
+builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<ProductService>();
 
 builder.Services.AddDbContext<PMContext>(opt => {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConn"));

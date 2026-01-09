@@ -27,12 +27,14 @@ namespace DAL.Repos
         public bool Update(Category entity)
         {
             var ex = db.Categories.Find(entity.Id);
+            if (ex == null) return false;
             db.Entry(ex).CurrentValues.SetValues(entity);
             return db.SaveChanges() > 0;
         }
         public bool Delete(int id)
         {
             var ex = db.Categories.Find(id);
+            if (ex == null) return false;
             return db.SaveChanges() > 0;
         }
 
