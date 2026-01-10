@@ -28,7 +28,7 @@ namespace APP.Controllers
         public IActionResult Update(int id, CategoryDTO cDto)
         {
             cDto.Id = id;
-            var res = service.Create(cDto);
+            var res = service.Update(cDto);
             if (res == true)
             {
                 return Ok(res);
@@ -39,10 +39,7 @@ namespace APP.Controllers
         public IActionResult Delete(int id)
         {
             var res = service.Delete(id);
-            if (res == true)
-            {
-                return Ok(res);
-            }
+            if (res == true) { return Ok(res); }
             else { return BadRequest(res); }
         }
         [HttpGet("all")]

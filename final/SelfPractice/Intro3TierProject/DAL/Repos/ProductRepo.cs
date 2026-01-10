@@ -27,12 +27,15 @@ namespace DAL.Repos
         public bool Update(Product entity)
         {
             var ex = db.Products.Find(entity.Id);
+            if (ex == null) return false;
             db.Entry(ex).CurrentValues.SetValues(entity);
             return db.SaveChanges() > 0;
         }
         public bool Delete(int id)
         {
             var ex = db.Products.Find(id);
+            if (ex == null) return false;
+            db.Products.Remove(ex);
             return db.SaveChanges() > 0;
         }
 
